@@ -1,0 +1,9 @@
+.hero__container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+    font-size: 30px;
+    font-weight: 600;
+}

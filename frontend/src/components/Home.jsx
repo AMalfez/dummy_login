@@ -1,8 +1,15 @@
 import React from 'react'
+import NavBar from './Navbar'
+import Hero from './Hero'
+import Footer from './Footer'
 
-function Home() {
+function Home({UserDetails}) {
   return (
-    <div>Hi Home</div>
+    <div>
+      <NavBar UserDetails={UserDetails}/>
+      <Hero/>
+      <Footer/>
+    </div>
   )
 }
 
