@@ -1,0 +1,36 @@
+.auth-btn{
+    background-color: rgb(43, 43, 247);
+    color: white;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    padding: 10px 15px;
+    border: none;
+    width: 100%;
+    margin-top: 20px;
+}
+.auth-btn:hover{
+    background-color: rgb(69, 69, 247);
+}
+
+.auth__title{
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.auth-img{
+    width: 80%;
+    height: auto;
+}
+
+.auth_img_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth__link{
+    color: blue;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10px;
+}
