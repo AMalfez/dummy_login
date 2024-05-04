@@ -7,7 +7,7 @@ function Home({UserDetails}) {
   return (
     <div>
       <NavBar UserDetails={UserDetails}/>
-      <Hero/>
+      <Hero UserDetails={UserDetails}/>
       <Footer/>
     </div>
   )

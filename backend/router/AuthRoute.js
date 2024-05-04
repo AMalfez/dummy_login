@@ -19,14 +19,14 @@ AuthRoute.post('/login',async(req,res)=>{
 })
 
 AuthRoute.post('/signup', async(req,res)=>{
-    const {username,password, email} = req.body;
+    const {username,password, email, gender, skill} = req.body;
     try{
         const user = await User.findOne({username});
         if(user) res.json({message: "User already exist", status: false});
         else{
             const salt = bcrypt.genSaltSync(10);
             const hash = bcrypt.hashSync(password, salt);
-            const user = await User.create({username, password:hash, email});
+            const user = await User.create({username, password:hash, email, gender, skill});
             res.json({message:"User successfully created", status:true, user});
         }
     }catch(err){

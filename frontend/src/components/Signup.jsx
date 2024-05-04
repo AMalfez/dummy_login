@@ -3,6 +3,7 @@ import "../css/Signup.css";
 import AuthImg from "../assets/AuthImg.jpg";
 import axios from "axios";
 import config from "../config";
+import {toast, Bounce} from 'react-toastify'
 
 function Signup({ setLoginPage, setUserDetails }) {
   const [user, setUser] = useState({ username: "", password: "", email: "" });
@@ -19,7 +20,7 @@ function Signup({ setLoginPage, setUserDetails }) {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const User = await axios.post(config.backend_url + "/auth/signup", user);
+      const User = await axios.post(config.backend_url + "/auth/signup", {...user, gender:selectedOption, skill:dropdownOption});
       toast.info(`${User.data.message}`, {
         position: "top-right",
         autoClose: 5000,
@@ -33,6 +34,7 @@ function Signup({ setLoginPage, setUserDetails }) {
       });
       if (User.data.status) setUserDetails(User.data.user);
     } catch (error) {
+      console.log(error);
       toast.info(`error occured`, {
         position: "top-right",
         autoClose: 5000,
@@ -89,29 +91,30 @@ function Signup({ setLoginPage, setUserDetails }) {
             <label>
               <input
                 type="radio"
-                value="option1"
-                checked={selectedOption === "option1"}
+                value="Male"
+                checked={selectedOption === "Male"}
                 onChange={handleChange}
               />
-              Option 1
+              Male
             </label>
             <label>
               <input
                 type="radio"
-                value="option2"
-                checked={selectedOption === "option2"}
+                value="Female"
+                checked={selectedOption === "Female"}
                 onChange={handleChange}
               />
-              Option 2
+              Female
             </label>
           </div>
 
           <div className="skill__field">
             <label htmlFor="options">Skills:</label>
             <select id="options" value={dropdownOption} onChange={handleDropdownChange}>
-              <option value="">Select...</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
+              <option value="">Select skill</option>
+              <option value="Javascript">Javascript</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
             </select>
           </div>
 

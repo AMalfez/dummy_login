@@ -1,8 +1,12 @@
 import React from 'react'
 import '../css/Hero.css'
-function Hero() {
+import Table from './Table'
+function Hero({UserDetails}) {
   return (
-    <div className='hero__container'>Hero Component</div>
+    <div className='hero__container'>
+      <div className='hero__title'>Welcome {UserDetails.username}</div>
+      <Table UserDetails={UserDetails}/>
+    </div>
   )
 }
 
